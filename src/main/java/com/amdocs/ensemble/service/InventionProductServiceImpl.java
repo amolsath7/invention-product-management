@@ -88,21 +88,10 @@ public class InventionProductServiceImpl implements IInventionProductService {
         log.info("product details found in db for id:" + projectId);
         return inventionProductList;
     }
-    /*
-     */
 
     /**
-     * Get the all project details with different phases (status wise)
-     *//*
-    @Override
-    public List<InventionProduct> getProductDetailsStatusAllDb() throws DataNotFoundException {
-        List<InventionProduct> inventionProductList = iInventionProductRepository.findAll();
-        if (CollectionUtils.isEmpty(inventionProductList)) {
-            throw new DataNotFoundException(Constant.DATA_NOT_FOUND);
-        }
-        log.info("product details found in db for all status");
-        return inventionProductList;
-    }*/
+     * Get the all project records if nothing found any then throw DataNotFoundException
+     */
     @Override
     public List<InventionProduct> getProductDetailsDb() throws DataNotFoundException {
         List<InventionProduct> inventionProductList = iInventionProductRepository.findAll();

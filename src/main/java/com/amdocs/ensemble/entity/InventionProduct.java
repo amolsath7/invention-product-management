@@ -44,6 +44,7 @@ public class InventionProduct {
     private String startDate;
     private String endDate;
 
+
     @Override
     public String toString() {
         return "InventionProduct{" +

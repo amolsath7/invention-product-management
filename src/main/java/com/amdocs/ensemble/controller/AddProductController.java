@@ -25,5 +25,4 @@ public class AddProductController implements IAddProductController {
         inventionProductService.addProductDetailsDb(product);
     }
 
-
 }

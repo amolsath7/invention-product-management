@@ -6,10 +6,8 @@ import com.amdocs.ensemble.exception.DataNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
-public interface IViewProductController
-{
+public interface IViewProductController {
     /**
-     *
      * @param projectId
      * @return
      * @throws DataNotFoundException
@@ -17,7 +15,6 @@ public interface IViewProductController
     Optional<InventionProduct> getProductDetailsById(String projectId) throws DataNotFoundException;
 
     /**
-     *
      * @return
      * @throws DataNotFoundException
      */

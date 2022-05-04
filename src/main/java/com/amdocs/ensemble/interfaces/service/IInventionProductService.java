@@ -28,7 +28,6 @@ public interface IInventionProductService {
 
     Optional<InventionProduct> getProductDetailsDbById(String projectId) throws DataNotFoundException;
 
-    // List<InventionProduct> getProductDetailsStatusAllDb() throws DataNotFoundException;
     List<InventionProduct> getProductDetailsDb() throws DataNotFoundException;
 
 }

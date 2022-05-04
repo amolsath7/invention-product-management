@@ -19,6 +19,7 @@ public class ViewProductController implements IViewProductController {
     @Autowired
     IInventionProductService inventionProductService;
 
+
     /**
      * @param projectId
      * @return
@@ -30,17 +31,6 @@ public class ViewProductController implements IViewProductController {
         return inventionProductService.getProductDetailsDbById(projectId);
     }
 
-    /*  */
-
-    /**
-     * @return
-     * @throws DataNotFoundException
-     *//*
-    @Override
-    public List<InventionProduct> getProductDetailsStatusAll() throws DataNotFoundException {
-        log.info("In InventionProductController - getProductDetailsStatusAll");
-        return inventionProductService.getProductDetailsStatusAllDb();
-    }*/
 
     @Override
     public List<InventionProduct> getProductDetails() throws DataNotFoundException {

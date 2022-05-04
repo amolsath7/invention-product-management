@@ -7,5 +7,4 @@ public class Constant {
     public static String IN_PROGRESS = "In-Progress";
     public static String COMPLETED = "Completed";
 
-
 }

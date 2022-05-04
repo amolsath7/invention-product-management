@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InventionProductResponse<T>
-{
+public class InventionProductResponse<T> {
     int recordCount;
     @JsonProperty("projectRecords")
     T response;

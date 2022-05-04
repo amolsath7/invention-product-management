@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class UpdateProductController implements IUpdateProductController
-{
+public class UpdateProductController implements IUpdateProductController {
     private final Logger log = LoggerFactory.getLogger(AddProductController.class);
 
     @Autowired
     IInventionProductService inventionProductService;
+
 
     /**
      * @param product

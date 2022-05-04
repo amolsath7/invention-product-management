@@ -2,14 +2,13 @@ package com.amdocs.ensemble.entity;
 
 import com.amdocs.ensemble.generator.StringPrefixedSequenceIdGenerator;
 import lombok.Data;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="teamMemberInfo")
+@Table(name = "teamMemberInfo")
 public class TeamMemberInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_seq3")

@@ -30,6 +30,7 @@ public interface IInventionProductResourceAPI {
     @ResponseStatus(value = HttpStatus.OK)
     public ResponseEntity<InventionProduct> updateProductDetails(@RequestHeader(value = "Content-Type", required = true) String contentType, @RequestBody InventionProduct product) throws DataNotFoundException;
 
+
     /**
      * @param projectId
      * @param contentType
@@ -40,11 +41,6 @@ public interface IInventionProductResourceAPI {
     @ResponseStatus(value = HttpStatus.OK)
     public Optional<InventionProduct> getProductDetailsById(@PathVariable String projectId, @RequestHeader(value = "Content-Type", required = true) String contentType) throws DataNotFoundException;
 
-
-   /* @RequestMapping(method = RequestMethod.GET, value = "/get-product-details-byPhases", consumes = {"application/json;charset=UTF-8"}, produces = {"application/json;charset=UTF-8"})
-    @ResponseStatus(value = HttpStatus.OK)
-    public StatusResponse<List<InventionProduct>> getProductDetailsByPhases(@RequestHeader(value = "Content-Type", required = true) String contentType) throws DataNotFoundException;
-*/
 
     /**
      * @param contentType

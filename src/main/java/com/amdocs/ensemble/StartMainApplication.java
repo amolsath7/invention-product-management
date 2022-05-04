@@ -15,8 +15,4 @@ public class StartMainApplication {
         SpringApplication.run(StartMainApplication.class, args);
     }
 
-    @Bean
-    public RestTemplate getRestTemplate() {
-        return new RestTemplate();
-    }
 }

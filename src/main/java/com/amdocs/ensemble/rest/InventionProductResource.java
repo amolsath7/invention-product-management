@@ -59,18 +59,11 @@ public class InventionProductResource implements IInventionProductResourceAPI {
         return iViewProductController.getProductDetailsById(projectId);
     }
 
-
-/*    @Override
-    public StatusResponse<List<InventionProduct>> getProductDetailsByPhases(String contentType) throws DataNotFoundException {
-        List<InventionProduct> inventionProductList = iInventionProductController.getProductDetailsStatusAll();
-        List<InventionProduct> inventionProductList1 = inventionProductList.stream().filter(product -> product.getStatus().equalsIgnoreCase(Constant.NOT_STARTED)).collect(Collectors.toList());
-        List<InventionProduct> inventionProductList2 = inventionProductList.stream().filter(product -> product.getStatus().equalsIgnoreCase(Constant.PLANNING)).collect(Collectors.toList());
-        List<InventionProduct> inventionProductList3 = inventionProductList.stream().filter(product -> product.getStatus().equalsIgnoreCase(Constant.IN_PROGRESS)).collect(Collectors.toList());
-        List<InventionProduct> inventionProductList4 = inventionProductList.stream().filter(product -> product.getStatus().equalsIgnoreCase(Constant.COMPLETED)).collect(Collectors.toList());
-
-        return new StatusResponse<>(inventionProductList1.size(), inventionProductList1, inventionProductList2, inventionProductList3, inventionProductList4);
-    }*/
-
+    /**
+     * @param contentType
+     * @return
+     * @throws DataNotFoundException
+     */
     @Override
     public InventionProductResponse<List<InventionProduct>> getProductDetails(String contentType) throws DataNotFoundException {
         List<InventionProduct> inventionProductList = iViewProductController.getProductDetails();
