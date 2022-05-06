@@ -51,4 +51,10 @@ public interface IInventionProductResourceAPI {
     @ResponseStatus(value = HttpStatus.OK)
     public InventionProductResponse<List<InventionProduct>> getProductDetails(@RequestHeader(value = "Content-Type", required = true) String contentType) throws DataNotFoundException;
 
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/accept-reject-product-details", consumes = {"application/json;charset=UTF-8"}, produces = {"application/json;charset=UTF-8"})
+    @ResponseStatus(value = HttpStatus.OK)
+    public ResponseEntity<InventionProduct> acceptRejectProductDetails(@RequestHeader(value = "Content-Type", required = true) String contentType, @RequestBody InventionProduct product) throws DataNotFoundException;
+
+
 }

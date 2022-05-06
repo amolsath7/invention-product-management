@@ -3,6 +3,7 @@ package com.amdocs.ensemble.rest;
 import com.amdocs.ensemble.domain.InventionProductResponse;
 import com.amdocs.ensemble.entity.InventionProduct;
 import com.amdocs.ensemble.exception.DataNotFoundException;
+import com.amdocs.ensemble.interfaces.controller.IAcceptRejectProductController;
 import com.amdocs.ensemble.interfaces.controller.IAddProductController;
 import com.amdocs.ensemble.interfaces.controller.IUpdateProductController;
 import com.amdocs.ensemble.interfaces.controller.IViewProductController;
@@ -23,6 +24,8 @@ public class InventionProductResource implements IInventionProductResourceAPI {
     IUpdateProductController iUpdateProductController;
     @Autowired
     IViewProductController iViewProductController;
+    @Autowired
+    IAcceptRejectProductController iAcceptRejectProductController;
 
     /**
      * @param contentType
@@ -69,4 +72,10 @@ public class InventionProductResource implements IInventionProductResourceAPI {
         List<InventionProduct> inventionProductList = iViewProductController.getProductDetails();
         return new InventionProductResponse<>(inventionProductList.size(), inventionProductList);
     }
+
+    @Override
+    public ResponseEntity<InventionProduct> acceptRejectProductDetails(String contentType, InventionProduct product) throws DataNotFoundException {
+        iAcceptRejectProductController.acceptRejectProductDetails(product);
+        return new ResponseEntity<>(product, HttpStatus.OK);    }
+
 }

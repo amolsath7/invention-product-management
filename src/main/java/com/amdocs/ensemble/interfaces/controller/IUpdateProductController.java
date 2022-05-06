@@ -10,4 +10,5 @@ public interface IUpdateProductController {
      */
     void updateProductDetails(InventionProduct product) throws DataNotFoundException;
 
+
 }

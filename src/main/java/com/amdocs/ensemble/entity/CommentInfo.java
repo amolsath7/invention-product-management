@@ -13,6 +13,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommentInfo {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "project_seq2")
     @GenericGenerator(
@@ -26,4 +28,6 @@ public class CommentInfo {
     private String userName;
     private String commentDate;
     private String comment;
+
+
 }

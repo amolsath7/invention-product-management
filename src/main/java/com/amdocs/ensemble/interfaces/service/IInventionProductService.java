@@ -30,4 +30,7 @@ public interface IInventionProductService {
 
     List<InventionProduct> getProductDetailsDb() throws DataNotFoundException;
 
+    void acceptRejectProductDetailsDb(InventionProduct product) throws DataNotFoundException;
+
+
 }

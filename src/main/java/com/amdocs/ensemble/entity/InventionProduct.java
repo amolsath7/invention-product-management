@@ -33,10 +33,12 @@ public class InventionProduct {
     private String complexity;
     private String usefulInfo;
 
-    @OneToMany(targetEntity = CommentInfo.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "comments_fk", referencedColumnName = "projectId")
-    private List<CommentInfo> comments;
+   /*  @OneToMany(targetEntity = CommentInfo.class, cascade = CascadeType.ALL)
+     @JoinColumn(name = "comments_fk", referencedColumnName = "projectId")
+     private List<CommentInfo> comments;*/
     private String submittedBy;
+
+    private String comments;
 
     @OneToMany(targetEntity = TeamMemberInfo.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "teamMember_fk", referencedColumnName = "projectId")

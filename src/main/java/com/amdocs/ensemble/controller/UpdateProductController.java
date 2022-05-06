@@ -26,4 +26,7 @@ public class UpdateProductController implements IUpdateProductController {
         log.info("In InventionProductController - updateProductDetails");
         inventionProductService.updateProductDetailsDb(product);
     }
+
+
+
 }
