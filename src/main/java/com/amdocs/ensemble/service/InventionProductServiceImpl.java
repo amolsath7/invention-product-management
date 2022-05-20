@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,7 +35,8 @@ public class InventionProductServiceImpl implements IInventionProductService {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String strDate = formatter.format(date);
         product.setStartDate(strDate);
-        product.setComments(product.getSubmittedBy() + " - " + product.getComments());
+        product.getComments().get(0).setUserName(product.getSubmittedBy());
+        product.getComments().get(0).setCommentDate(formatter.format(date));
         iInventionProductRepository.save(product);
         log.info("new idea created and stored in db");
 
@@ -46,6 +48,8 @@ public class InventionProductServiceImpl implements IInventionProductService {
      */
     @Override
     public void updateProductDetailsDb(InventionProduct product) throws DataNotFoundException {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         InventionProduct existingProduct = iInventionProductRepository.findById(product.getProjectId()).orElse(null);
         if (Objects.isNull(existingProduct)) {
             throw new DataNotFoundException(Constant.DATA_NOT_FOUND);
@@ -56,15 +60,14 @@ public class InventionProductServiceImpl implements IInventionProductService {
         existingProduct.setProjectDescription(product.getProjectDescription());
         existingProduct.setStatus(product.getStatus());
         existingProduct.setUsefulInfo(product.getUsefulInfo());
-        // existingProduct.setComments(product.getComments());
-        existingProduct.setComments(product.getSubmittedBy() + " - " + product.getComments());
+        existingProduct.setComments(product.getComments());
+        existingProduct.getComments().get(0).setUserName(product.getSubmittedBy());
+        existingProduct.getComments().get(0).setCommentDate(formatter.format(date));
         existingProduct.setComplexity(product.getComplexity());
         existingProduct.setSubmittedBy(product.getSubmittedBy());
         existingProduct.setTeamMember(product.getTeamMember());
-
         if (product.getStatus().equalsIgnoreCase(Constant.COMPLETED)) {
-            Date date = new Date();
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+
             String endDate = formatter.format(date);
             existingProduct.setEndDate(endDate);
         }
@@ -111,7 +114,7 @@ public class InventionProductServiceImpl implements IInventionProductService {
             throw new DataNotFoundException(Constant.DATA_NOT_FOUND);
         }
         existingProduct.setStatus(product.getStatus());
-        existingProduct.setComments(existingProduct.getSubmittedBy() + " - " + product.getComments());
+       // existingProduct.setComments(existingProduct.getSubmittedBy() + " - " + product.getComments());
 
         iInventionProductRepository.save(existingProduct);
         log.info("new idea accepted or rejected and moved to next phase or blocker phase");
