@@ -66,7 +66,7 @@ public class InventionProductServiceImpl implements IInventionProductService {
         existingProduct.setComplexity(product.getComplexity());
         existingProduct.setSubmittedBy(product.getSubmittedBy());
         existingProduct.setTeamMember(product.getTeamMember());
-        if (product.getStatus().equalsIgnoreCase(Constant.COMPLETED)) {
+        if (product.getStatus()!=null && product.getStatus().equalsIgnoreCase(Constant.COMPLETED)) {
 
             String endDate = formatter.format(date);
             existingProduct.setEndDate(endDate);
