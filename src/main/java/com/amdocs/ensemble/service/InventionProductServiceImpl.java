@@ -61,8 +61,11 @@ public class InventionProductServiceImpl implements IInventionProductService {
         existingProduct.setStatus(product.getStatus());
         existingProduct.setUsefulInfo(product.getUsefulInfo());
         existingProduct.getComments().add(product.getComments().get(0));
-        existingProduct.getComments().get(0).setUserName(product.getSubmittedBy());
-        existingProduct.getComments().get(0).setCommentDate(formatter.format(date));
+        int n = existingProduct.getComments().size();
+        for (int i=n-1; i < n ; i++) {
+            existingProduct.getComments().get(i).setUserName(product.getSubmittedBy());
+            existingProduct.getComments().get(i).setCommentDate(formatter.format(date));
+        }
         existingProduct.setComplexity(product.getComplexity());
         existingProduct.setSubmittedBy(product.getSubmittedBy());
         existingProduct.setTeamMember(product.getTeamMember());
