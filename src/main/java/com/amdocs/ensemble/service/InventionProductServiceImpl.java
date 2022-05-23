@@ -60,7 +60,7 @@ public class InventionProductServiceImpl implements IInventionProductService {
         existingProduct.setProjectDescription(product.getProjectDescription());
         existingProduct.setStatus(product.getStatus());
         existingProduct.setUsefulInfo(product.getUsefulInfo());
-        existingProduct.setComments(product.getComments());
+        existingProduct.getComments().add(product.getComments().get(0));
         existingProduct.getComments().get(0).setUserName(product.getSubmittedBy());
         existingProduct.getComments().get(0).setCommentDate(formatter.format(date));
         existingProduct.setComplexity(product.getComplexity());
